@@ -1,0 +1,1 @@
+docker run -dp 80:81 -v /Users/stealyro/Desktop/Simpledocker/src/part4/nginx:/etc/nginx hello:world

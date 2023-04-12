@@ -1,0 +1,7 @@
+docker cp /part3/nginx/nginx.conf [CONT ID]:/etc/nginx/nginx.conf
+docker cp /part3/server.c [CONT ID]:/
+docker exec [CONT ID] apt install -y gcc spawn-fcgi libfcgi-dev
+docker exec [CONT ID] gcc -o server server.c -lfcgi
+docker exec [CONT ID] spawn-fcgi -p 8080 ./server
+docker exec [CONT ID] nginx -s reload 
+docker exec [CONT ID] curl localhost:81/
