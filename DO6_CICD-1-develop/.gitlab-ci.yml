@@ -1,0 +1,48 @@
+stages:
+  - build
+  - linters
+  - unit-tests
+  - deploy
+
+stage_build:
+  stage: build
+  tags:
+    - firstrunner
+  script:
+    - bash src/build.sh
+  after_script:
+    - bash src/tg.sh
+  artifacts:
+    paths:
+      - src/cat/s21_cat
+      - src/grep/s21_grep
+    expire_in: 30 day
+
+stage_linter:
+    stage: linters
+    tags:
+      - firstrunner
+    script:
+      - bash src/linters.sh
+    after_script:
+      - bash src/tg.sh
+
+stage_unit_tests:
+    stage: unit-tests
+    tags:
+      - firstrunner
+    script:
+      - bash src/test.sh
+    after_script:
+      - bash src/tg.sh
+
+stage_deploy:
+    stage: deploy
+    tags:
+      - firstrunner
+    script:
+      - bash src/deploy.sh
+      - echo 'deploy'
+    after_script:
+      - bash src/tg.sh
+    when: manual  
