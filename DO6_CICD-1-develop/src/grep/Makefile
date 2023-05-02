@@ -16,10 +16,10 @@ clean :
 	rm -f $(TARGET).o
 
 testfunc :
-	./test_func_grep.sh
+	 ./test_func_grep.sh 2>../testfunc_grep.log 1> ../testfunc_grep.log
 
 testleak : 
 	./test_leak_grep.sh
 
 style :
-	clang-format -n $(TARGET).*	
+	clang-format -n $(TARGET).* 2>> ../style.log

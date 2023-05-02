@@ -4,7 +4,7 @@ stages:
   - unit-tests
   - deploy
 
-stage_build:
+BUILD:
   stage: build
   tags:
     - firstrunner
@@ -18,7 +18,7 @@ stage_build:
       - src/grep/s21_grep
     expire_in: 30 day
 
-stage_linter:
+CODESTYLE:
     stage: linters
     tags:
       - firstrunner
@@ -27,7 +27,7 @@ stage_linter:
     after_script:
       - bash src/tg.sh
 
-stage_unit_tests:
+TEST:
     stage: unit-tests
     tags:
       - firstrunner
@@ -36,7 +36,7 @@ stage_unit_tests:
     after_script:
       - bash src/tg.sh
 
-stage_deploy:
+DEPLOY:
     stage: deploy
     tags:
       - firstrunner

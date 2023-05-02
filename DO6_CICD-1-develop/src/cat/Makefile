@@ -18,10 +18,10 @@ clean :
 	rm $(TARGET).o
 
 testfunc :
-	 ./test_func_cat.sh
+	 ./test_func_cat.sh 2>../testfunc_cat.log 1> ../testfunc_cat.log
 
 testleak : 
 	./test_leak_cat.sh
 
 style :
-	clang-format -n $(TARGET).*	
+	clang-format -n $(TARGET).* 2> ../style.log
