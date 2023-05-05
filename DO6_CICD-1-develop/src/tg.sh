@@ -8,8 +8,8 @@ else
 	CI_JOB_STATUS="Canceled 🤔"
 fi    
 
-TELEGRAM_USER_ID=338395893
-TELEGRAM_BOT_TOKEN=6263647712:AAFw4z9DzG4nIdzxMSoU2kA5dp2w7a8rCVg
+TELEGRAM_USER_ID=#####
+TELEGRAM_BOT_TOKEN=####
 
 URL="https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage"
 TEXT="Status:
